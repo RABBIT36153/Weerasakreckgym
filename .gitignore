@@ -1,0 +1,67 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+build
+
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.fleet/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Package manager lock files (optional - uncomment if you don't want to track)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Testing
+.jest/
+
+# Misc
+*.pem
+.cache/

@@ -1,0 +1,21 @@
+{
+  "name": "muaythai-admin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 4001",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.8.0"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.8.4",
+    "quill": "^1.3.7"
+  }
+}
+
