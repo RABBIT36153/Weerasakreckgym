@@ -27,7 +27,7 @@ const mongodbConfig = {
     retryReads: process.env.MONGODB_RETRY_READS !== 'false', // Enable retryable reads
     
     // Buffer Settings
-    bufferMaxEntries: 0, // Disable mongoose buffering
+    // bufferMaxEntries: 0, // Disable mongoose buffering
     bufferCommands: false, // Disable mongoose buffering
     
     // Write Concern
