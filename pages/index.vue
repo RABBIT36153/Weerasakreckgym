@@ -174,7 +174,8 @@
 </template>
 
 <script setup>
-const API_BASE_URL = 'http://localhost:4002/api'
+const { public: { apiBaseUrl } } = useRuntimeConfig()
+const API_BASE_URL = `${apiBaseUrl}/api`
 const popularCourses = ref([])
 const loading = ref(false)
 const error = ref(null)
@@ -319,12 +320,12 @@ const getImageUrl = (url) => {
   }
   // For local uploads, use API server to serve static files
   if (url.startsWith('/uploads/')) {
-    return `http://localhost:4002${url}`
+    return `${apiBaseUrl}${url}`
   }
   // Handle paths without leading slash
   if (url.includes('uploads/')) {
     const cleanPath = url.startsWith('/') ? url : `/${url}`
-    return `http://localhost:4002${cleanPath}`
+    return `${apiBaseUrl}${cleanPath}`
   }
   return url
 }
@@ -342,12 +343,12 @@ const getServiceImageUrl = (url) => {
   }
   // For local uploads, use API server to serve static files
   if (url.startsWith('/uploads/')) {
-    return `http://localhost:4002${url}`
+    return `${apiBaseUrl}${url}`
   }
   // Handle paths without leading slash
   if (url.includes('uploads/')) {
     const cleanPath = url.startsWith('/') ? url : `/${url}`
-    return `http://localhost:4002${cleanPath}`
+    return `${apiBaseUrl}${cleanPath}`
   }
   return url
 }
@@ -365,12 +366,12 @@ const getContentImageUrl = (url) => {
   }
   // For local uploads, use API server to serve static files
   if (url.startsWith('/uploads/')) {
-    return `http://localhost:4002${url}`
+    return `${apiBaseUrl}${url}`
   }
   // Handle paths without leading slash
   if (url.includes('uploads/')) {
     const cleanPath = url.startsWith('/') ? url : `/${url}`
-    return `http://localhost:4002${cleanPath}`
+    return `${apiBaseUrl}${cleanPath}`
   }
   return url
 }

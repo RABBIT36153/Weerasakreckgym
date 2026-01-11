@@ -127,7 +127,8 @@
 </template>
 
 <script setup>
-const API_BASE_URL = 'http://localhost:4002/api'
+const { public: { apiBaseUrl } } = useRuntimeConfig()
+const API_BASE_URL = `${apiBaseUrl}/api`
 
 const mobileMenuOpen = ref(false)
 const searchQuery = ref('')
@@ -159,14 +160,14 @@ const getLogoUrl = (url) => {
   }
   // For local uploads, use API server to serve static files
   if (url.startsWith('/uploads/')) {
-    return `http://localhost:4002${url}`
+    return `${apiBaseUrl}${url}`
   }
   // Handle paths without leading slash
   if (url.includes('uploads/')) {
     const cleanPath = url.startsWith('/') ? url : `/${url}`
-    return `http://localhost:4002${cleanPath}`
+    return `${apiBaseUrl}${cleanPath}`
   }
-  return `http://localhost:4002/${url}`
+  return `${apiBaseUrl}/${url}`
 }
 
 const handleLogoError = (event) => {

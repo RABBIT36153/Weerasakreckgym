@@ -125,7 +125,8 @@
 <script setup>
 const router = useRouter()
 
-const API_BASE_URL = 'http://localhost:4002/api'
+const { public: { apiBaseUrl } } = useRuntimeConfig()
+const API_BASE_URL = `${apiBaseUrl}/api`
 const memberships = ref([])
 const loading = ref(false)
 const error = ref(null)

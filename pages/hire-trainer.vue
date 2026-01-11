@@ -195,7 +195,8 @@
 const route = useRoute()
 const router = useRouter()
 
-const API_BASE_URL = 'http://localhost:4002/api'
+const { public: { apiBaseUrl } } = useRuntimeConfig()
+const API_BASE_URL = `${apiBaseUrl}/api`
 const trainerId = ref(route.query.trainerId || null)
 const submitting = ref(false)
 const error = ref(null)

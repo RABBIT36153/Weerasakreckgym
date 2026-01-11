@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4002'
+    }
+  },
+  
   // CSS Optimization
   experimental: {
     payloadExtraction: false,

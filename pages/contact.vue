@@ -237,7 +237,8 @@
 </template>
 
 <script setup>
-const API_BASE_URL = 'http://localhost:4002/api'
+const { public: { apiBaseUrl } } = useRuntimeConfig()
+const API_BASE_URL = `${apiBaseUrl}/api`
 
 const submitting = ref(false)
 const loading = ref(false)

@@ -181,7 +181,8 @@
 const route = useRoute()
 const router = useRouter()
 
-const API_BASE_URL = 'http://localhost:4002/api'
+const { public: { apiBaseUrl } } = useRuntimeConfig()
+const API_BASE_URL = `${apiBaseUrl}/api`
 
 const courseId = ref(route.query.courseId || null)
 const trainerId = ref(route.query.trainerId || null)
