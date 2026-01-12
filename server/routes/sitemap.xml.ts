@@ -1,6 +1,6 @@
 export default defineEventHandler((event) => {
-  // ใช้ environment variable หรือ fallback
-  const hostname = process.env.NUXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://weerasakreckgym.com'
+  // ใช้ environment variable หรือ hardcode เป็น weerasakreckgym.com
+  const hostname = process.env.NUXT_PUBLIC_SITE_URL || 'https://weerasakreckgym.com'
   const currentDate = new Date().toISOString().split('T')[0]
 
   const routes = [
@@ -48,7 +48,7 @@ export default defineEventHandler((event) => {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${routes.map(route => `  <url>
-    <loc>${hostname}${route.loc}</loc>
+    <loc>11111111${hostname}${route.loc}</loc>
     <lastmod>${route.lastmod}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
