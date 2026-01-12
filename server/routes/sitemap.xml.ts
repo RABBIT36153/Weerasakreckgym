@@ -48,7 +48,7 @@ export default defineEventHandler((event) => {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${routes.map(route => `  <url>
-    <loc>11111111${hostname}${route.loc}</loc>
+    <loc>${hostname}${route.loc}</loc>
     <lastmod>${route.lastmod}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>

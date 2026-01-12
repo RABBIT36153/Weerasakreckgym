@@ -52,7 +52,13 @@ export default defineNuxtConfig({
   
   nitro: {
     compressPublicAssets: true,
-    minify: true
+    minify: true,
+    routeRules: {
+      '/sitemap.xml': { 
+        headers: { 'Content-Type': 'application/xml' },
+        prerender: false
+      }
+    }
   },
   
   devServer: {
