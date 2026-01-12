@@ -3,21 +3,20 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   
+  // SSR is enabled by default in Nuxt 3 (ssr: true)
+  // This ensures Google Bot can see the content without waiting for JavaScript
+  ssr: true,
+  
   runtimeConfig: {
     public: {
-      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4002'
+      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4002',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://weerasakreckgym.com'
     }
   },
   
   // CSS Optimization
   experimental: {
-    payloadExtraction: false,
-    inlineSSRStyles: false
-  },
-  
-  // Build optimization
-  build: {
-    extractCSS: true
+    payloadExtraction: false
   },
   
   vite: {
