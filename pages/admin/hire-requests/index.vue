@@ -199,7 +199,8 @@ definePageMeta({
   layout: 'admin'
 })
 
-const API_BASE_URL = 'http://localhost:4002/api'
+const config = useRuntimeConfig()
+const API_BASE_URL = config.public.apiBaseUrl
 const searchQuery = ref('')
 const filterStatus = ref('')
 const showDetailsModal = ref(false)

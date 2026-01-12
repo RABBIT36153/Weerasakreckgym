@@ -266,7 +266,8 @@ definePageMeta({
   layout: 'admin'
 })
 
-const API_BASE_URL = 'http://localhost:4002/api'
+const config = useRuntimeConfig()
+const API_BASE_URL = config.public.apiBaseUrl
 const members = ref([])
 const memberships = ref([])
 const loading = ref(false)

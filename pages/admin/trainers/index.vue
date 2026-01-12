@@ -320,7 +320,8 @@ const form = ref({
   }))
 })
 
-const API_BASE_URL = 'http://localhost:4002/api'
+const config = useRuntimeConfig()
+const API_BASE_URL = config.public.apiBaseUrl
 const trainers = ref([])
 const loading = ref(false)
 const error = ref(null)

@@ -3,6 +3,15 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   
+  // Runtime Config - Environment Variables
+  runtimeConfig: {
+    // Private keys (only available on server-side)
+    // Public keys (exposed to client-side)
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4002/api'
+    }
+  },
+  
   // CSS Optimization
   experimental: {
     payloadExtraction: false,
