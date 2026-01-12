@@ -1,5 +1,5 @@
 export default defineEventHandler((event) => {
-  const hostname = process.env.NUXT_PUBLIC_SITE_URL || 'http://weerasakreckgym.com'
+  const hostname = 'http://weerasakreckgym.com'
   const currentDate = new Date().toISOString().split('T')[0]
 
   const routes = [
