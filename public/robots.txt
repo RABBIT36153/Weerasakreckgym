@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /payment
 
-Sitemap: http://weerasakreckgym.com/sitemap.xml
+Sitemap: https://weerasakreckgym.com/sitemap.xml
 

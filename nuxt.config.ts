@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4002',
-      siteUrl: 'https://weerasakreckgym.com' // ใส่ https และชื่อเว็บตรงนี้
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://weerasakreckgym.com' // ใส่ https และชื่อเว็บตรงนี้
     }
   },
   

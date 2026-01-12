@@ -1,5 +1,6 @@
 export default defineEventHandler((event) => {
-  const hostname = 'https://weerasakreckgym.com'
+  // ใช้ environment variable หรือ fallback
+  const hostname = process.env.NUXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://weerasakreckgym.com'
   const currentDate = new Date().toISOString().split('T')[0]
 
   const routes = [
