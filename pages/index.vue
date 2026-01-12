@@ -24,10 +24,10 @@
       <!-- Content -->
       <div class="container mx-auto text-center relative z-10">
         <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
-          {{ headerSettings.headerText || 'ยินดีต้อนรับสู่ Muay Thai Academy' }}
+          {{ headerSettings.headerText || 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย' }}
         </h1>
         <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          {{ headerSettings.subText || 'โรงเรียนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ พร้อมอุปกรณ์ครบครัน พัฒนาทักษะการต่อสู้และความแข็งแกร่งของคุณ' }}
+          {{ headerSettings.subText || 'Weerasakreckgym โรงเรียนสอนมวยไทยคุณภาพ สอนมวยไทยโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้และความแข็งแกร่งของคุณ' }}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <NuxtLink to="/courses" class="btn-primary text-lg">
@@ -409,6 +409,54 @@ const fetchContentSettings = async () => {
     // Use default values if API fails
   }
 }
+
+// SEO Meta Tags
+useHead({
+  title: 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย | Muay Thai Academy',
+  meta: [
+    { name: 'description', content: 'Weerasakreckgym โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้และความแข็งแกร่ง คอร์สเรียนมวยไทย ครูมวยมืออาชีพ' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, เรียนมวยไทย, คอร์สมวยไทย, ครูมวย, มวยไทย, Muay Thai, Muay Thai Academy, โรงเรียนมวยไทย, ฟิตเนสมวยไทย' },
+    { property: 'og:title', content: 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย' },
+    { property: 'og:description', content: 'โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้และความแข็งแกร่ง' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย' },
+    { name: 'twitter:description', content: 'โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย' }
+  ]
+})
+
+// Structured Data (JSON-LD) for SEO
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SportsActivityLocation',
+        'name': 'Weerasakreckgym',
+        'alternateName': 'Muay Thai Academy',
+        'description': 'โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้และความแข็งแกร่ง',
+        'sport': 'Muay Thai',
+        'offers': {
+          '@type': 'Offer',
+          'category': 'คอร์สเรียนมวยไทย, สอนมวยไทย, ออกกำลังกายด้วยมวย'
+        },
+        'keywords': 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, เรียนมวยไทย, คอร์สมวยไทย, ครูมวย, มวยไทย'
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        'name': 'Weerasakreckgym',
+        'alternateName': 'Muay Thai Academy',
+        'description': 'โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ',
+        'slogan': 'สอนมวยไทย ออกกำลังกายด้วยมวย'
+      })
+    }
+  ]
+})
 
 // Load data on mount
 onMounted(() => {

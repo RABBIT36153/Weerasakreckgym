@@ -193,6 +193,16 @@ const loading = ref(false)
 const processing = ref(false)
 const error = ref(null)
 
+// SEO Meta Tags
+useHead({
+  title: 'ชำระเงิน - Weerasakreckgym | สอนมวยไทย ออกกำลังกายด้วยมวย',
+  meta: [
+    { name: 'description', content: 'ชำระเงินคอร์สเรียนมวยไทย Weerasakreckgym สอนมวยไทย ออกกำลังกายด้วยมวยไทย ชำระเงินด้วยบัตรเครดิต' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, ชำระเงิน, payment, Muay Thai Payment' },
+    { name: 'robots', content: 'noindex, nofollow' }
+  ]
+})
+
 // Total price (no discount for membership)
 const totalPrice = computed(() => {
   // For membership, use the price directly without discount

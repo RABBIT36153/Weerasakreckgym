@@ -242,6 +242,38 @@ const API_BASE_URL = `${apiBaseUrl}/api`
 
 const submitting = ref(false)
 const loading = ref(false)
+
+// SEO Meta Tags
+useHead({
+  title: 'ติดต่อเรา - Weerasakreckgym | สอนมวยไทย ออกกำลังกายด้วยมวย',
+  meta: [
+    { name: 'description', content: 'ติดต่อ Weerasakreckgym โรงเรียนสอนมวยไทยคุณภาพ สอนมวยไทย ออกกำลังกายด้วยมวยไทย ข้อมูลติดต่อ ที่อยู่ เบอร์โทร อีเมล' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, ติดต่อ, contact, Muay Thai Academy' },
+    { property: 'og:title', content: 'ติดต่อเรา - Weerasakreckgym' },
+    { property: 'og:description', content: 'ติดต่อ Weerasakreckgym โรงเรียนสอนมวยไทยคุณภาพ' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
+// Structured Data for Contact
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        'name': 'ติดต่อเรา - Weerasakreckgym',
+        'description': 'ติดต่อ Weerasakreckgym โรงเรียนสอนมวยไทยคุณภาพ',
+        'mainEntity': {
+          '@type': 'Organization',
+          'name': 'Weerasakreckgym',
+          'alternateName': 'Muay Thai Academy'
+        }
+      })
+    }
+  ]
+})
 const contactInfo = ref({
   address: {
     line1: '',

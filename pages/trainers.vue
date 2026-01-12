@@ -191,6 +191,39 @@ const loading = ref(false)
 const error = ref(null)
 const selectedTrainer = ref(null)
 
+// SEO Meta Tags
+useHead({
+  title: 'ครูมวยมืออาชีพ - Weerasakreckgym | สอนมวยไทย ออกกำลังกายด้วยมวย',
+  meta: [
+    { name: 'description', content: 'ครูมวยมืออาชีพจาก Weerasakreckgym สอนมวยไทยโดยครูมวยที่มีประสบการณ์ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้ เรียนแบบตัวต่อตัวหรือกลุ่ม' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, ครูมวย, ครูมวยมืออาชีพ, Muay Thai Trainer' },
+    { property: 'og:title', content: 'ครูมวยมืออาชีพ - Weerasakreckgym' },
+    { property: 'og:description', content: 'ครูมวยมืออาชีพ สอนมวยไทยโดยครูมวยที่มีประสบการณ์ ออกกำลังกายด้วยมวยไทย' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
+// Structured Data for Trainers
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        'name': 'ครูมวยมืออาชีพ - Weerasakreckgym',
+        'description': 'ครูมวยมืออาชีพ สอนมวยไทยโดยครูมวยที่มีประสบการณ์ ออกกำลังกายด้วยมวยไทย',
+        'provider': {
+          '@type': 'Organization',
+          'name': 'Weerasakreckgym',
+          'alternateName': 'Muay Thai Academy'
+        },
+        'keywords': 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, ครูมวย'
+      })
+    }
+  ]
+})
+
 const filters = ['ทั้งหมด', 'พื้นฐาน', 'ขั้นสูง', 'แข่งขัน', 'ป้องกันตัว', 'ฟิตเนส', 'ผู้เริ่มต้น']
 const selectedFilter = ref('ทั้งหมด')
 

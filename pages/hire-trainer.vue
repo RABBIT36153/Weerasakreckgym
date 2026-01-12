@@ -201,6 +201,18 @@ const trainerId = ref(route.query.trainerId || null)
 const submitting = ref(false)
 const error = ref(null)
 
+// SEO Meta Tags
+useHead({
+  title: 'จ้างครูมวยไปต่างประเทศ - Weerasakreckgym | สอนมวยไทย',
+  meta: [
+    { name: 'description', content: 'จ้างครูมวยไปต่างประเทศ Weerasakreckgym บริการจัดหาครูมวยมืออาชีพเพื่อไปสอนยังต่างประเทศ พร้อมดูแลเรื่องเอกสารและวีซ่า' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, จ้างครูมวย, ครูมวยต่างประเทศ, hire trainer, Muay Thai Trainer Abroad' },
+    { property: 'og:title', content: 'จ้างครูมวยไปต่างประเทศ - Weerasakreckgym' },
+    { property: 'og:description', content: 'บริการจัดหาครูมวยมืออาชีพเพื่อไปสอนยังต่างประเทศ' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
 const form = ref({
   name: '',
   email: '',

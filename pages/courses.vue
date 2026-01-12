@@ -73,6 +73,39 @@ const courses = ref([])
 const loading = ref(false)
 const error = ref(null)
 
+// SEO Meta Tags
+useHead({
+  title: 'คอร์สเรียนมวยไทย - Weerasakreckgym | สอนมวยไทย ออกกำลังกายด้วยมวย',
+  meta: [
+    { name: 'description', content: 'คอร์สเรียนมวยไทยคุณภาพจาก Weerasakreckgym สอนมวยไทยโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้ คอร์สพื้นฐาน ขั้นกลาง ขั้นสูง' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, คอร์สเรียนมวยไทย, เรียนมวยไทย, คอร์สมวยไทย, Muay Thai Course' },
+    { property: 'og:title', content: 'คอร์สเรียนมวยไทย - Weerasakreckgym' },
+    { property: 'og:description', content: 'คอร์สเรียนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
+// Structured Data for Courses
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        'name': 'คอร์สเรียนมวยไทย - Weerasakreckgym',
+        'description': 'คอร์สเรียนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย',
+        'provider': {
+          '@type': 'Organization',
+          'name': 'Weerasakreckgym',
+          'alternateName': 'Muay Thai Academy'
+        },
+        'keywords': 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, คอร์สเรียนมวยไทย'
+      })
+    }
+  ]
+})
+
 // Fetch courses from API
 const fetchCourses = async () => {
   loading.value = true

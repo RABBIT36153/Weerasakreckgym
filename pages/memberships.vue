@@ -133,6 +133,18 @@ const error = ref(null)
 const selectedPackage = ref(null)
 const selectedMembership = ref(null)
 
+// SEO Meta Tags
+useHead({
+  title: 'แพ็คเกจสมาชิกรายเดือน - Weerasakreckgym | สอนมวยไทย ออกกำลังกายด้วยมวย',
+  meta: [
+    { name: 'description', content: 'แพ็คเกจสมาชิกรายเดือน Weerasakreckgym สอนมวยไทย ออกกำลังกายด้วยมวยไทย เข้าคลาสได้ไม่จำกัด พร้อมสิทธิพิเศษต่างๆ' },
+    { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, สมาชิกรายเดือน, membership, Muay Thai Membership' },
+    { property: 'og:title', content: 'แพ็คเกจสมาชิกรายเดือน - Weerasakreckgym' },
+    { property: 'og:description', content: 'แพ็คเกจสมาชิกรายเดือน เข้าคลาสได้ไม่จำกัด' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
 // Fetch memberships from API
 const fetchMemberships = async () => {
   loading.value = true

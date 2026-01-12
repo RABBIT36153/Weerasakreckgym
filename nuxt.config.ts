@@ -57,10 +57,22 @@ export default defineNuxtConfig({
   
   app: {
     head: {
-      title: 'Muay Thai Academy',
+      title: 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย | Muay Thai Academy',
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Weerasakreckgym โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้และความแข็งแกร่ง คอร์สเรียนมวยไทย ครูมวยมืออาชีพ' },
+        { name: 'keywords', content: 'weerasakreckgym, สอนมวยไทย, ออกกำลังกายด้วยมวย, เรียนมวยไทย, คอร์สมวยไทย, ครูมวย, มวยไทย, Muay Thai, Muay Thai Academy, โรงเรียนมวยไทย, ฟิตเนสมวยไทย' },
+        { name: 'author', content: 'Weerasakreckgym' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'googlebot', content: 'index, follow' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย' },
+        { property: 'og:description', content: 'โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย พัฒนาทักษะการต่อสู้และความแข็งแกร่ง' },
+        { property: 'og:site_name', content: 'Weerasakreckgym' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Weerasakreckgym - สอนมวยไทย ออกกำลังกายด้วยมวย' },
+        { name: 'twitter:description', content: 'โรงเรียนสอนมวยไทยคุณภาพ สอนโดยครูมวยมืออาชีพ ออกกำลังกายด้วยมวยไทย' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
