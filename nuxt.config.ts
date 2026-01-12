@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxtjs/tailwindcss'
+    // @nuxtjs/sitemap ไม่รองรับ Nuxt 3 เราใช้ dynamic route แทน (server/routes/sitemap.xml.ts)
+  ],
   css: ['~/assets/css/main.css'],
   
   // SSR is enabled by default in Nuxt 3 (ssr: true)
@@ -10,9 +13,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4002',
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://weerasakreckgym.com'
+      siteUrl: 'https://weerasakreckgym.com' // ใส่ https และชื่อเว็บตรงนี้
     }
   },
+  
+  // หมายเหตุ: เราใช้ dynamic sitemap route (server/routes/sitemap.xml.ts) แทน module
+  // เพราะ @nuxtjs/sitemap ไม่รองรับ Nuxt 3
   
   // CSS Optimization
   experimental: {
