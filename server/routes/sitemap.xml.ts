@@ -1,5 +1,5 @@
 export default defineEventHandler((event) => {
-  const hostname = 'http://weerasakreckgym.com'
+  const hostname = 'https://weerasakreckgym.com'
   const currentDate = new Date().toISOString().split('T')[0]
 
   const routes = [

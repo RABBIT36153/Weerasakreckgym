@@ -2,7 +2,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss'
-    // @nuxtjs/sitemap ไม่รองรับ Nuxt 3 เราใช้ dynamic route แทน (server/routes/sitemap.xml.ts)
   ],
   css: ['~/assets/css/main.css'],
   
