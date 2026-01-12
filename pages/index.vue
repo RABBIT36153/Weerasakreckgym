@@ -54,7 +54,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div 
-            v-for="(service, index) in servicesSettings.items" 
+            v-for="(service, index) in (servicesSettings.items || [])" 
             :key="index"
             class="card text-center hover:border-red-primary transition-all duration-300 hover:transform hover:scale-105 group"
           >
@@ -100,7 +100,7 @@
         <div v-else-if="error" class="text-center py-12">
           <p class="text-red-400">{{ error }}</p>
         </div>
-        <div v-else-if="popularCourses.length === 0" class="text-center py-12">
+        <div v-else-if="!popularCourses || popularCourses.length === 0" class="text-center py-12">
           <p class="text-gray-400">ยังไม่มีคอร์สยอดนิยม</p>
         </div>
         <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -129,18 +129,316 @@
       </div>
     </section>
 
+    <!-- Call to Action - Invite to Learn Muay Thai -->
+    <section class="py-20 px-4 bg-gradient-to-br from-red-900/30 via-dark-surface to-dark-bg relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-red-primary rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-red-primary rounded-full blur-3xl"></div>
+      </div>
+      
+      <div class="container mx-auto relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
+            เชิญชวนเรียนมวยไทย
+          </h2>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left Column - ประโยชน์ที่คุณจะได้รับ -->
+            <div class="card bg-dark-card/80 backdrop-blur-sm border-2 border-red-primary/30">
+              <h3 class="text-3xl font-bold mb-6 text-white text-center">
+                ประโยชน์ที่คุณจะได้รับ
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-14 h-14 bg-red-primary rounded-full flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold text-white mb-2">เฟิร์มกระชับทุกส่วน</h4>
+                    <p class="text-gray-300">ออกกำลังกายทุกส่วนของร่างกาย กระชับกล้ามเนื้อ และลดไขมัน</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-14 h-14 bg-red-primary rounded-full flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold text-white mb-2">เพิ่มความแข็งแรงและความอึด</h4>
+                    <p class="text-gray-300">พัฒนาความแข็งแรงของกล้ามเนื้อและความทนทานของร่างกาย</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-14 h-14 bg-red-primary rounded-full flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold text-white mb-2">ฝึกสมาธิและความมั่นใจ</h4>
+                    <p class="text-gray-300">พัฒนาสมาธิและสร้างความมั่นใจในตนเอง</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-14 h-14 bg-red-primary rounded-full flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold text-white mb-2">ผ่อนคลายความเครียด</h4>
+                    <p class="text-gray-300">ปลดปล่อยความเครียดและความกดดันจากการออกกำลังกาย</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-14 h-14 bg-red-primary rounded-full flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold text-white mb-2">ได้เรียนทักษะการป้องกันตัวจริงใช้ได้จริง</h4>
+                    <p class="text-gray-300">เรียนรู้เทคนิคการป้องกันตัวที่สามารถนำไปใช้ได้จริงในชีวิตประจำวัน</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right Column - เนื้อหาเชิญชวน -->
+            <div class="flex flex-col justify-center">
+              <div class="space-y-6">
+                <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+                  เปิดประสบการณ์การออกกำลังกายแบบใหม่ ที่ทั้ง <span class="text-red-primary font-bold">สนุก</span> <span class="text-red-primary font-bold">ฟิต</span> และได้<span class="text-red-primary font-bold">ศิลปะป้องกันตัว</span> กับ <span class="text-yellow-400 font-bold">มวยไทยศิลปะแห่งนักสู้</span> ของคนไทย! ✨
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                  เหมาะสำหรับทุกวัย ทุกระดับ เริ่มต้นได้แม้ไม่เคยมีพื้นฐาน ครูผู้สอนดูแลอย่างใกล้ชิด 🔥
+                </p>
+              </div>
+              
+              <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <NuxtLink to="/courses" class="btn-primary text-lg px-8 py-4 text-xl text-center">
+                  เริ่มเรียนมวยไทยวันนี้
+                </NuxtLink>
+                <NuxtLink to="/trainers" class="btn-secondary text-lg px-8 py-4 text-xl text-center">
+                  ดูครูมวยของเรา
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gym/Stadium Section -->
+    <section class="py-20 px-4 bg-dark-surface">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+            สนามมวย Weerasakreckgym
+          </h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            สนามมวยมาตรฐานพร้อมอุปกรณ์ครบครัน สำหรับการฝึกซ้อมและแข่งขัน
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <!-- Left Column - Text Content -->
+          <div class="space-y-6">
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-4 text-white">
+                สนามมวยมาตรฐาน
+              </h3>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                สนามมวย Weerasakreckgym เป็นสนามมวยมาตรฐานที่ออกแบบมาเพื่อการฝึกซ้อมและแข่งขันอย่างมืออาชีพ พร้อมอุปกรณ์ครบครันและสิ่งอำนวยความสะดวกที่ทันสมัย
+              </p>
+              <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                <li>สนามมวยมาตรฐานขนาด 7x7 เมตร</li>
+                <li>อุปกรณ์ฝึกซ้อมครบครัน (กระสอบทราย, เป้าตี, หมัด, นวม)</li>
+                <li>พื้นที่วอร์มอัพและยืดกล้ามเนื้อ</li>
+                <li>ห้องน้ำและห้องเปลี่ยนเสื้อผ้า</li>
+                <li>ระบบระบายอากาศที่ดี</li>
+                <li>แสงสว่างเพียงพอสำหรับการฝึกซ้อม</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-4 text-white">
+                เหมาะสำหรับทุกคน
+              </h3>
+              <p class="text-gray-300 leading-relaxed">
+                ไม่ว่าคุณจะเป็นผู้เริ่มต้นหรือนักมวยมืออาชีพ สนามมวยของเราพร้อมรองรับการฝึกซ้อมทุกระดับ ครูมวยมืออาชีพของเราจะดูแลและแนะนำเทคนิคที่ถูกต้องให้คุณ
+              </p>
+            </div>
+          </div>
+          
+          <!-- Right Column - Features -->
+          <div class="space-y-6">
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-4 text-white">
+                จุดเด่นของสนามมวย
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-8 h-8 bg-red-primary rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span class="text-white font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-1">ความปลอดภัย</h4>
+                    <p class="text-gray-300 text-sm">อุปกรณ์และสนามมวยได้รับการตรวจสอบความปลอดภัยอย่างสม่ำเสมอ</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-8 h-8 bg-red-primary rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span class="text-white font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-1">มาตรฐานสากล</h4>
+                    <p class="text-gray-300 text-sm">สนามมวยได้มาตรฐานสากล เหมาะสำหรับการแข่งขันและฝึกซ้อม</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-8 h-8 bg-red-primary rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span class="text-white font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-1">บรรยากาศดี</h4>
+                    <p class="text-gray-300 text-sm">บรรยากาศที่เอื้อต่อการฝึกซ้อม มีพื้นที่เพียงพอและสะอาด</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-8 h-8 bg-red-primary rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span class="text-white font-bold">✓</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-1">ครูมวยมืออาชีพ</h4>
+                    <p class="text-gray-300 text-sm">ครูมวยที่มีประสบการณ์พร้อมให้คำแนะนำและดูแลอย่างใกล้ชิด</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card bg-gradient-to-br from-red-900/20 to-red-800/10 border-red-primary/30">
+              <h3 class="text-2xl font-bold mb-4 text-white">
+                เริ่มต้นวันนี้
+              </h3>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                มาเยี่ยมชมสนามมวยของเราและสัมผัสประสบการณ์การฝึกซ้อมมวยไทยที่แท้จริง
+              </p>
+              <NuxtLink to="/contact" class="btn-primary inline-block">
+                ติดต่อเรา
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section class="py-20 px-4">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+            ครูมวยของเรา
+          </h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            ครูมวยมืออาชีพที่มีประสบการณ์ พร้อมสอนและดูแลคุณอย่างใกล้ชิด
+          </p>
+        </div>
+        
+        <div v-if="loadingTrainers" class="text-center py-12">
+          <p class="text-gray-400">กำลังโหลดข้อมูล...</p>
+        </div>
+        <div v-else-if="errorTrainers" class="text-center py-12">
+          <p class="text-red-400">{{ errorTrainers }}</p>
+        </div>
+        <div v-else-if="!featuredTrainers || featuredTrainers.length === 0" class="text-center py-12">
+          <p class="text-gray-400">ยังไม่มีข้อมูลครูมวย</p>
+        </div>
+        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div
+            v-for="trainer in featuredTrainers"
+            :key="trainer._id || trainer.id"
+            class="card hover:border-red-primary transition-all duration-300 hover:transform hover:scale-105"
+          >
+            <div class="text-center mb-4">
+              <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-red-primary">
+                <img 
+                  :src="getImageUrl(trainer.image)" 
+                  :alt="trainer.name"
+                  class="w-full h-full object-cover"
+                  @error="handleImageError($event, trainer.name)"
+                />
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">{{ trainer.name }}</h3>
+              <p class="text-red-primary font-semibold mb-2">{{ trainer.title }}</p>
+              <div class="flex items-center justify-center mb-4">
+                <span class="text-yellow-400 mr-1">⭐</span>
+                <span class="text-gray-300">{{ trainer.rating || '5.0' }}</span>
+                <span class="text-gray-500 ml-2">({{ trainer.reviews || '0' }} รีวิว)</span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-gray-300 mb-2">ความเชี่ยวชาญ:</h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="skill in (trainer.skills || [])"
+                  :key="skill"
+                  class="px-3 py-1 bg-dark-surface rounded-full text-xs text-gray-400 border border-dark-border"
+                >
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-gray-300 mb-2">ประสบการณ์:</h4>
+              <p class="text-gray-400 text-sm">{{ trainer.experience || 'มีประสบการณ์สอนมวยไทย' }}</p>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-gray-300 mb-2">ค่าเรียน:</h4>
+              <p class="text-red-primary font-bold text-lg">
+                {{ typeof trainer.price === 'number' ? trainer.price.toLocaleString('th-TH') : (trainer.price || '0') }} บาท/เดือน
+              </p>
+            </div>
+
+            <NuxtLink :to="`/trainers`" class="btn-primary w-full text-center block">
+              เลือกครูมวยนี้
+            </NuxtLink>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <NuxtLink to="/trainers" class="btn-secondary text-lg px-8 py-4">
+            ดูครูมวยทั้งหมด
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <!-- Content Section -->
     <section 
-      v-if="contentSettings.enabled && (contentSettings.title || (contentSettings.items && contentSettings.items.length > 0))"
+      v-if="contentSettings && contentSettings.enabled && (contentSettings.title || (contentSettings.items && Array.isArray(contentSettings.items) && contentSettings.items.length > 0))"
       class="py-20 bg-dark-surface"
     >
       <div class="container mx-auto">
-        <div v-if="contentSettings.title" class="text-center mb-12 px-4">
+        <div v-if="contentSettings && contentSettings.title" class="text-center mb-12 px-4">
           <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">
             {{ contentSettings.title }}
           </h2>
         </div>
-        <div v-if="contentSettings.items && contentSettings.items.length > 0" class="space-y-0">
+        <div v-if="contentSettings && contentSettings.items && Array.isArray(contentSettings.items) && contentSettings.items.length > 0" class="space-y-0">
           <div 
             v-for="(item, index) in sortedContentItems" 
             :key="index"
@@ -179,6 +477,9 @@ const API_BASE_URL = `${apiBaseUrl}/api`
 const popularCourses = ref([])
 const loading = ref(false)
 const error = ref(null)
+const featuredTrainers = ref([])
+const loadingTrainers = ref(false)
+const errorTrainers = ref(null)
 const headerSettings = ref({
   bannerImage: '',
   mobileBannerImage: '',
@@ -229,7 +530,7 @@ const contentSettings = ref({
 
 // Sort content items by order
 const sortedContentItems = computed(() => {
-  if (!contentSettings.value.items || !Array.isArray(contentSettings.value.items)) {
+  if (!contentSettings.value || !contentSettings.value.items || !Array.isArray(contentSettings.value.items)) {
     return []
   }
   return [...contentSettings.value.items].sort((a, b) => (a.order || 0) - (b.order || 0))
@@ -458,11 +759,40 @@ useHead({
   ]
 })
 
+// Fetch featured trainers from API (exactly same as /trainers page)
+const fetchFeaturedTrainers = async () => {
+  console.log('fetchFeaturedTrainers called')
+  loadingTrainers.value = true
+  errorTrainers.value = null
+  try {
+    // Exact same API call as /trainers page
+    const apiUrl = `${API_BASE_URL}/trainers?status=active`
+    console.log('API_BASE_URL:', API_BASE_URL)
+    console.log('Fetching trainers from:', apiUrl)
+    const response = await $fetch(apiUrl)
+    console.log('Trainers response:', response)
+    const allTrainers = Array.isArray(response) ? response : []
+    console.log('All trainers:', allTrainers)
+    // Show only first 6 trainers
+    featuredTrainers.value = allTrainers.slice(0, 6)
+    console.log('Featured trainers:', featuredTrainers.value)
+  } catch (err) {
+    console.error('Error fetching trainers:', err)
+    errorTrainers.value = 'เกิดข้อผิดพลาดในการโหลดข้อมูลครูมวย'
+    featuredTrainers.value = []
+  } finally {
+    loadingTrainers.value = false
+  }
+}
+
+// Note: Using getImageUrl and handleImageError from above (same as /trainers page)
+
 // Load data on mount
 onMounted(() => {
   fetchHeaderSettings()
   fetchPopularCourses()
   fetchContentSettings()
+  fetchFeaturedTrainers()
 })
 </script>
 
